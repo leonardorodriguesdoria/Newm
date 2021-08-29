@@ -1,0 +1,81 @@
+﻿﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tabela de Listagem</title>
+    <link rel="stylesheet" href="tabelaagendamento.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript" src="Tabela.js"></script>
+
+    <style>
+        #fPessoas {
+            width: 480px;
+            margin-left: 30%;
+            margin-top: 3%;
+        }
+
+        tr:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="lh-100">
+            <h6 class="mb-0 text-white lh-100">Listagem de Clientes</h6>
+            <small class="text-white">Created by Leonardo Rodrigues</small>
+        </div>
+    </nav>
+
+    <div id="fPessoas">
+        <form method="POST" action="db_conn.php">
+            <div class="form-group">
+                <label for="txtID">ID</label>
+                <input type="text" class="form-control" id="txtID" aria-describedby="emailHelp" placeholder="ID" readonly>
+            </div>
+            <div class="form-group">
+                <label for="txtCompromisso">Cliente</label>
+                <input type="text" class="form-control" id="txtCliente" aria-describedby="emailHelp" placeholder="Inserir Cliente" name="Cliente">
+            </div>
+            <div class="form-group">
+                <label for="txtData">Data</label>
+                <input type="date" class="form-control" id="txtData" placeholder="Data" name="Data">
+            </div>
+            <button type="button" class="btn btn-primary btn-lg"
+                    onclick="cadPessoa(txtCliente.value , txtData.value)">
+                Adicionar Cliente
+            </button>
+            <button type="button" class="btn btn-primary btn-lg"
+                    onclick="altPessoa(txtCliente.value , txtData.value)">
+                Salvar
+            </button>
+            <button type="button" class="btn btn-primary btn-lg"
+                    onclick="delRegistro()">
+                Excluir
+            </button>
+        </form>
+    </div>
+
+    <br />
+    <br />
+
+    <div id="dGridPessoas">
+
+        <table id="tbPessoas" class="table table-striped" border="1">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Data</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+</body>
+
+</html>
